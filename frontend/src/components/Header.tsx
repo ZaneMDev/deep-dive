@@ -1,12 +1,14 @@
+import logo from '../assets/logo.png';
+
 function Header() {
     return (
         <header className="fixed right-0 left-0 z-1 flex justify-between bg-white/75 px-16 py-2 shadow-lg backdrop-blur-md">
             <div className="flex w-1/4 items-center">
                 <a href="#" className="block size-fit" title="Home">
                     <img
-                        src="/favicon.svg"
+                        src={logo}
                         alt="Logo"
-                        className="pointer-events-none size-12"
+                        className="pointer-events-none h-8"
                     />
                 </a>
             </div>
