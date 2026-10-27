@@ -1,7 +1,7 @@
 function Header() {
     return (
-        <header className="fixed right-0 left-0 z-1 flex justify-between bg-white/75 px-16 py-2 backdrop-blur-md">
-            <div className="w-1/4">
+        <header className="fixed right-0 left-0 z-1 flex justify-between bg-white/75 px-16 py-2 shadow-lg backdrop-blur-md">
+            <div className="flex w-1/4 items-center">
                 <a href="#" className="block size-fit" title="Home">
                     <img
                         src="/favicon.svg"
@@ -16,7 +16,7 @@ function Header() {
                     htmlFor="search"
                     className="pointer-events-none absolute flex px-4"
                 >
-                    <span className="material-symbols-outlined text-[#808080]">
+                    <span className="material-symbols-outlined text-[#808080] select-none">
                         search
                     </span>
                 </label>
