@@ -1,4 +1,4 @@
-import logo from '../assets/logo.png';
+import logo from '../assets/logo.svg';
 
 function Header() {
     return (
@@ -8,7 +8,7 @@ function Header() {
                     <img
                         src={logo}
                         alt="Logo"
-                        className="pointer-events-none h-8"
+                        className="pointer-events-none h-10"
                     />
                 </a>
             </div>
@@ -25,12 +25,12 @@ function Header() {
                 <input
                     type="text"
                     id="search"
-                    className="w-full rounded-full border border-[#808080] bg-white px-12 py-2 text-[#404040] placeholder:text-[#808080] focus:border-[#404040] focus:outline-none"
+                    className="w-full rounded-full border border-[#808080] bg-white px-12 py-2 font-semibold text-[#808080] placeholder:text-[#a0a0a0] focus:border-[#404040] focus:outline-none"
                     placeholder="Search for a community..."
                 />
             </form>
 
-            <div className="flex w-1/4 items-center justify-end gap-2">
+            <div className="flex w-1/4 items-center justify-end gap-2 font-semibold">
                 <a
                     href=""
                     className="rounded-full border border-[#808080] bg-white px-4 py-2 text-[#808080]"
