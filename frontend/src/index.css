@@ -1,1 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
 @import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+    /* Site font */
+    --font-sans: 'Inter', sans-serif;
+
+    /* Background colors */
+    --color-surface-1: var(--surface-1);
+    --color-surface-2: var(--surface-2);
+    --color-surface-3: var(--surface-3);
+    --color-surface-1-inverse: var(--surface-1-inverse);
+    --color-surface-2-inverse: var(--surface-2-inverse);
+    --color-surface-3-inverse: var(--surface-3-inverse);
+
+    /* Text colors */
+    --color-foreground-1: var(--foreground-1);
+    --color-foreground-2: var(--foreground-2);
+    --color-foreground-3: var(--foreground-3);
+    --color-foreground-1-inverse: var(--foreground-1-inverse);
+    --color-foreground-2-inverse: var(--foreground-2-inverse);
+    --color-foreground-3-inverse: var(--foreground-3-inverse);
+
+    /* Static background/text colors */
+    --color-static-light-1: #ffffff;
+    --color-static-light-2: #e0e0e0;
+    --color-static-light-3: #c0c0c0;
+    --color-static-dark-1: #202020;
+    --color-static-dark-2: #404040;
+    --color-static-dark-3: #606060;
+
+    /* Brand colors */
+    --color-brand-primary: #00a0ff;
+    --color-brand-secondary: #ff8000;
+    --color-brand-accent: #ffe000;
+}
+
+:root {
+    /* Background colors */
+    --surface-1: #ffffff;
+    --surface-2: #e0e0e0;
+    --surface-3: #c0c0c0;
+    --surface-1-inverse: #202020;
+    --surface-2-inverse: #404040;
+    --surface-3-inverse: #606060;
+
+    /* Text colors */
+    --foreground-1: #202020;
+    --foreground-2: #404040;
+    --foreground-3: #606060;
+    --foreground-1-inverse: #ffffff;
+    --foreground-2-inverse: #e0e0e0;
+    --foreground-3-inverse: #c0c0c0;
+}
+
+.dark {
+    /* Background colors */
+    --surface-1: #585858;
+    --surface-2: #383838;
+    --surface-3: #202020;
+    --surface-1-inverse: #c0c0c0;
+    --surface-2-inverse: #e0e0e0;
+    --surface-3-inverse: #ffffff;
+
+    /* Text colors */
+    --foreground-1: #ffffff;
+    --foreground-2: #e0e0e0;
+    --foreground-3: #c0c0c0;
+    --foreground-1-inverse: #202020;
+    --foreground-2-inverse: #404040;
+    --foreground-3-inverse: #606060;
+}

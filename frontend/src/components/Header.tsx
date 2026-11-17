@@ -2,7 +2,7 @@ import logo from '../assets/logo.svg';
 
 function Header() {
     return (
-        <header className="fixed right-0 left-0 z-1 flex justify-between bg-white/75 px-16 py-2 shadow-lg backdrop-blur-md">
+        <header className="bg-surface-1 fixed right-0 left-0 z-1 flex justify-between px-16 py-2 shadow-md">
             <div className="flex w-1/4 items-center">
                 <a href="#" className="block size-fit" title="Home">
                     <img
@@ -18,29 +18,29 @@ function Header() {
                     htmlFor="search"
                     className="pointer-events-none absolute flex px-4"
                 >
-                    <span className="material-symbols-outlined text-[#808080] select-none">
+                    <span className="material-symbols-outlined text-foreground-2 select-none">
                         search
                     </span>
                 </label>
                 <input
                     type="text"
                     id="search"
-                    className="w-full rounded-full border border-[#808080] bg-white px-12 py-2 font-semibold text-[#808080] placeholder:text-[#a0a0a0] focus:border-[#404040] focus:outline-none"
-                    placeholder="Search for a community..."
+                    className="border-foreground-2 bg-surface-1 text-foreground-2 placeholder:text-foreground-2 w-full rounded-full border px-12 py-2 focus:outline-none"
+                    placeholder="Search for a group..."
                 />
             </form>
 
-            <div className="flex w-1/4 items-center justify-end gap-2 font-semibold">
+            <div className="flex w-1/4 items-center justify-end gap-2">
                 <a
                     href=""
-                    className="rounded-full border border-[#808080] bg-white px-4 py-2 text-[#808080]"
+                    className="border-foreground-2 text-foreground-2 bg-surface-1 rounded-full border px-4 py-2"
                     title="Log In"
                 >
                     Log In
                 </a>
                 <a
                     href=""
-                    className="rounded-full bg-[#ff8000] px-4 py-2 text-white"
+                    className="bg-brand-secondary text-static-light-1 rounded-full px-4 py-2"
                     title="Sign Up"
                 >
                     Sign Up
