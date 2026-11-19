@@ -1,22 +1,20 @@
 import { z } from 'zod';
 
 export const UserSchema = z.object({
-    id: z.bigint().optional(),
-
     email: z
-        .email({ message: 'Invalid email address' })
-        .max(255, 'Email cannot exceed 255 characters')
+        .email('Invalid email address')
         .trim()
-        .toLowerCase(),
+        .toLowerCase()
+        .max(255, 'Email cannot exceed 255 characters'),
 
     username: z
         .string()
-        .min(3, 'Username must be at least 3 characters')
-        .max(16, 'Username cannot exceed 16 characters')
         .trim()
+        .min(3, 'Username must be at least 3 characters')
+        .max(20, 'Username cannot exceed 20 characters')
         .regex(
             /^[a-zA-Z0-9_]+$/,
-            'Usernames can only contain letters, numbers, and underscores'
+            'Usernames can only contain letters, numbers, and underscores',
         ),
 
     password: z
@@ -26,8 +24,8 @@ export const UserSchema = z.object({
 
     bio: z
         .string()
-        .max(160, 'Bio cannot exceed 160 characters')
         .trim()
+        .max(200, 'Bio cannot exceed 200 characters')
         .nullable()
         .optional(),
 });
