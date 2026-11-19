@@ -8,8 +8,8 @@ A modern full-stack, ocean-themed discussion platform inspired by Reddit built a
 
 ## 🛠️ Tech Stack
 
-- **Frontend:** React + TypeScript + TailwindCSS v4
-- **Backend:** Node.js + Express + TypeScript (`tsx` watcher)
+- **Frontend:** React + TypeScript + TailwindCSS
+- **Backend:** Node.js + Express + TypeScript
 
 ---
 
@@ -20,8 +20,8 @@ Follow these quick steps to get the project on to your local machine.
 ### 1. Clone the Project
 
 ```bash
-git clone https://github.com/ZaneMDev/deep-dive.git
-cd deep-dive
+git clone https://github.com/ZaneMDev/deepdive.git
+cd deepdive
 ```
 
 ### 2. Run Backend
