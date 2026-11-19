@@ -1,5 +1,6 @@
 generator client {
-    provider = "prisma-client-js"
+    provider = "prisma-client"
+    output   = "../src/generated/prisma"
 }
 
 datasource db {
@@ -8,13 +9,14 @@ datasource db {
 
 model User {
     // Identifiers
-    id BigInt @id
+    id       BigInt @id @default(autoincrement()) @db.UnsignedBigInt
+    publicId String @unique @db.VarChar(12)
 
     // User Data
     email    String  @unique @db.VarChar(255)
-    username String  @unique @db.VarChar(16)
+    username String  @unique @db.VarChar(20)
     password String  @db.VarChar(255)
-    bio      String? @db.VarChar(160)
+    bio      String? @db.VarChar(200)
 
     // Relations
     createdGroups Group[]       @relation("GroupCreator")
@@ -29,14 +31,15 @@ model User {
 
 model Group {
     // Identifiers
-    id BigInt @id
+    id       BigInt @id @default(autoincrement()) @db.UnsignedBigInt
+    publicId String @unique @db.VarChar(12)
 
     // Group Data
-    name        String  @unique @db.VarChar(20)
-    description String? @db.VarChar(400)
+    name        String  @unique @db.VarChar(25)
+    description String? @db.VarChar(500)
 
     // Relations
-    creatorId BigInt
+    creatorId BigInt        @db.UnsignedBigInt
     creator   User          @relation("GroupCreator", fields: [creatorId], references: [id], onDelete: Cascade)
     members   GroupMember[]
     posts     Post[]
@@ -48,8 +51,8 @@ model Group {
 
 model GroupMember {
     // Identifiers & Foreign Keys
-    userId  BigInt
-    groupId BigInt
+    userId  BigInt @db.UnsignedBigInt
+    groupId BigInt @db.UnsignedBigInt
 
     // Relations
     user  User  @relation(fields: [userId], references: [id], onDelete: Cascade)
@@ -65,13 +68,14 @@ model GroupMember {
 
 model Post {
     // Identifiers & Foreign Keys
-    id       BigInt @id
-    authorId BigInt
-    groupId  BigInt
+    id       BigInt @id @default(autoincrement()) @db.UnsignedBigInt
+    publicId String @unique @db.VarChar(12)
+    authorId BigInt @db.UnsignedBigInt
+    groupId  BigInt @db.UnsignedBigInt
 
     // Post Data
-    title    String  @db.VarChar(80)
-    body     String? @db.VarChar(800)
+    title    String  @db.VarChar(100)
+    body     String? @db.VarChar(1000)
     isEdited Boolean @default(false)
 
     // Relations
@@ -90,10 +94,11 @@ model Post {
 
 model Comment {
     // Identifiers & Foreign Keys
-    id       BigInt  @id
-    authorId BigInt
-    postId   BigInt
-    parentId BigInt?
+    id       BigInt  @id @default(autoincrement()) @db.UnsignedBigInt
+    publicId String  @unique @db.VarChar(12)
+    authorId BigInt  @db.UnsignedBigInt
+    postId   BigInt  @db.UnsignedBigInt
+    parentId BigInt? @db.UnsignedBigInt
 
     // Comment Data
     content  String  @db.VarChar(1000)
@@ -102,7 +107,7 @@ model Comment {
     // Relations
     author  User      @relation(fields: [authorId], references: [id], onDelete: Cascade)
     post    Post      @relation(fields: [postId], references: [id], onDelete: Cascade)
-    parent  Comment?  @relation("CommentReplies", fields: [parentId], references: [id], onDelete: Cascade)
+    parent  Comment?  @relation("CommentReplies", fields: [parentId], references: [id], onDelete: NoAction, onUpdate: NoAction)
     replies Comment[] @relation("CommentReplies")
 
     // Timestamps
