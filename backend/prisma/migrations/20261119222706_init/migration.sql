@@ -1,7 +1,7 @@
 -- CreateTable
 CREATE TABLE `User` (
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
-    `publicId` VARCHAR(12) NOT NULL,
+    `publicId` CHAR(12) NOT NULL,
     `email` VARCHAR(255) NOT NULL,
     `username` VARCHAR(20) NOT NULL,
     `password` VARCHAR(255) NOT NULL,
@@ -18,7 +18,7 @@ CREATE TABLE `User` (
 -- CreateTable
 CREATE TABLE `Group` (
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
-    `publicId` VARCHAR(12) NOT NULL,
+    `publicId` CHAR(12) NOT NULL,
     `name` VARCHAR(25) NOT NULL,
     `description` VARCHAR(500) NULL,
     `creatorId` BIGINT UNSIGNED NOT NULL,
@@ -43,10 +43,10 @@ CREATE TABLE `GroupMember` (
 -- CreateTable
 CREATE TABLE `Post` (
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
-    `publicId` VARCHAR(12) NOT NULL,
+    `publicId` CHAR(12) NOT NULL,
     `authorId` BIGINT UNSIGNED NOT NULL,
     `groupId` BIGINT UNSIGNED NOT NULL,
-    `title` VARCHAR(100) NOT NULL,
+    `title` VARCHAR(75) NOT NULL,
     `body` VARCHAR(1000) NULL,
     `isEdited` BOOLEAN NOT NULL DEFAULT false,
     `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
@@ -61,7 +61,7 @@ CREATE TABLE `Post` (
 -- CreateTable
 CREATE TABLE `Comment` (
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
-    `publicId` VARCHAR(12) NOT NULL,
+    `publicId` CHAR(12) NOT NULL,
     `authorId` BIGINT UNSIGNED NOT NULL,
     `postId` BIGINT UNSIGNED NOT NULL,
     `parentId` BIGINT UNSIGNED NULL,

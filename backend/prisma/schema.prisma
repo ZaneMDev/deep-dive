@@ -10,7 +10,7 @@ datasource db {
 model User {
     // Identifiers
     id       BigInt @id @default(autoincrement()) @db.UnsignedBigInt
-    publicId String @unique @db.VarChar(12)
+    publicId String @unique @db.Char(12)
 
     // User Data
     email    String  @unique @db.VarChar(255)
@@ -32,7 +32,7 @@ model User {
 model Group {
     // Identifiers
     id       BigInt @id @default(autoincrement()) @db.UnsignedBigInt
-    publicId String @unique @db.VarChar(12)
+    publicId String @unique @db.Char(12)
 
     // Group Data
     name        String  @unique @db.VarChar(25)
@@ -69,12 +69,12 @@ model GroupMember {
 model Post {
     // Identifiers & Foreign Keys
     id       BigInt @id @default(autoincrement()) @db.UnsignedBigInt
-    publicId String @unique @db.VarChar(12)
+    publicId String @unique @db.Char(12)
     authorId BigInt @db.UnsignedBigInt
     groupId  BigInt @db.UnsignedBigInt
 
     // Post Data
-    title    String  @db.VarChar(100)
+    title    String  @db.VarChar(75)
     body     String? @db.VarChar(1000)
     isEdited Boolean @default(false)
 
@@ -95,7 +95,7 @@ model Post {
 model Comment {
     // Identifiers & Foreign Keys
     id       BigInt  @id @default(autoincrement()) @db.UnsignedBigInt
-    publicId String  @unique @db.VarChar(12)
+    publicId String  @unique @db.Char(12)
     authorId BigInt  @db.UnsignedBigInt
     postId   BigInt  @db.UnsignedBigInt
     parentId BigInt? @db.UnsignedBigInt
